@@ -64,18 +64,20 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				brand: {
-					saffron: '#F4B400',
-					maroon: '#8B1E3F',
-					wheat: '#F5E6C5',
-					sand: '#FFF8F0',
-					green: '#6B8E23',
-					brown: '#5D4037',
-					charcoal: '#3C3C3C'
+					yellow: '#F1C40F',
+					darkYellow: '#D4AC0D',
+					green: '#27AE60',
+					darkGreen: '#1E8449',
+					lightGreen: '#58D68D',
+					cream: '#FEF9E7',
+					white: '#FFFFFF',
+					charcoal: '#2C3E50'
 				}
 			},
 			fontFamily: {
 				'playfair': ['Playfair Display', 'serif'],
 				'poppins': ['Poppins', 'sans-serif'],
+				'devanagari': ['Noto Sans Devanagari', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -145,8 +147,8 @@ export default {
 				'grain-texture': 'grain-texture 20s linear infinite'
 			},
 			backgroundImage: {
-				'grain-texture': 'radial-gradient(circle at 1px 1px, rgba(244,180,0,0.15) 1px, transparent 0)',
-				'hero-gradient': 'linear-gradient(135deg, #FFF8F0 0%, #F5E6C5 50%, #F4B400 100%)',
+				'grain-texture': 'radial-gradient(circle at 1px 1px, rgba(241,196,15,0.15) 1px, transparent 0)',
+				'hero-gradient': 'linear-gradient(135deg, #FEF9E7 0%, #F1C40F 50%, #27AE60 100%)',
 			}
 		}
 	},

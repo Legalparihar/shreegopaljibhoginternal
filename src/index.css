@@ -1,38 +1,38 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 255 248 240;
-    --foreground: 60 60 60;
+    --background: 254 249 231;
+    --foreground: 44 62 80;
 
     --card: 255 255 255;
-    --card-foreground: 60 60 60;
+    --card-foreground: 44 62 80;
 
     --popover: 255 255 255;
-    --popover-foreground: 60 60 60;
+    --popover-foreground: 44 62 80;
 
-    --primary: 244 180 0;
+    --primary: 241 196 15;
     --primary-foreground: 255 255 255;
 
-    --secondary: 245 230 197;
-    --secondary-foreground: 60 60 60;
+    --secondary: 39 174 96;
+    --secondary-foreground: 255 255 255;
 
-    --muted: 250 243 224;
-    --muted-foreground: 139 30 63;
+    --muted: 254 249 231;
+    --muted-foreground: 44 62 80;
 
-    --accent: 245 230 197;
-    --accent-foreground: 60 60 60;
+    --accent: 88 214 141;
+    --accent-foreground: 44 62 80;
 
-    --destructive: 220 38 127;
+    --destructive: 231 76 60;
     --destructive-foreground: 255 255 255;
 
-    --border: 245 230 197;
-    --input: 245 230 197;
-    --ring: 244 180 0;
+    --border: 212 172 13;
+    --input: 212 172 13;
+    --ring: 241 196 15;
 
     --radius: 0.75rem;
   }
@@ -48,14 +48,18 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-playfair;
   }
+
+  .hindi {
+    @apply font-devanagari;
+  }
 }
 
 @layer components {
   .hero-pattern {
     background-image: 
-      radial-gradient(circle at 20% 50%, rgba(244, 180, 0, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(139, 30, 63, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 40% 80%, rgba(245, 230, 197, 0.2) 0%, transparent 50%);
+      radial-gradient(circle at 20% 50%, rgba(241, 196, 15, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(39, 174, 96, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(254, 249, 231, 0.2) 0%, transparent 50%);
   }
 
   .grain-overlay {
@@ -70,7 +74,7 @@
     right: 0;
     bottom: 0;
     background-image: 
-      radial-gradient(circle at 1px 1px, rgba(244, 180, 0, 0.1) 1px, transparent 0);
+      radial-gradient(circle at 1px 1px, rgba(241, 196, 15, 0.1) 1px, transparent 0);
     background-size: 20px 20px;
     pointer-events: none;
     z-index: 1;
@@ -87,25 +91,25 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #F4B400 0%, #8B1E3F 50%, #F4B400 100%);
+    background: linear-gradient(90deg, #F1C40F 0%, #27AE60 50%, #F1C40F 100%);
     border-radius: 2px;
   }
 
   .product-card {
     @apply bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
-    border: 1px solid rgba(244, 180, 0, 0.2);
+    border: 1px solid rgba(241, 196, 15, 0.2);
   }
 
   .product-card:hover {
-    box-shadow: 0 20px 40px rgba(244, 180, 0, 0.15);
+    box-shadow: 0 20px 40px rgba(39, 174, 96, 0.15);
   }
 
   .btn-primary {
-    @apply bg-brand-saffron hover:bg-yellow-500 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg;
+    @apply bg-brand-yellow hover:bg-brand-darkYellow text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg;
   }
 
   .btn-secondary {
-    @apply bg-brand-maroon hover:bg-red-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg;
+    @apply bg-brand-green hover:bg-brand-darkGreen text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg;
   }
 
   .section-padding {
@@ -113,10 +117,14 @@
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #F4B400 0%, #8B1E3F 100%);
+    background: linear-gradient(135deg, #F1C40F 0%, #27AE60 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .language-toggle {
+    @apply bg-brand-green hover:bg-brand-darkGreen text-white px-3 py-2 rounded-lg transition-all duration-300 text-sm font-medium;
   }
 }
 
