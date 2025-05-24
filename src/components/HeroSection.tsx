@@ -10,12 +10,27 @@ const HeroSection = () => {
     {
       title: t('hero.subtitle1'),
       subtitle: t('hero.subtitle2'),
-      image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=1200&h=800&fit=crop"
+      image: "/hero1.png"
     },
     {
       title: t('hero.subtitle3'),
       subtitle: t('hero.subtitle4'),
-      image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=1200&h=800&fit=crop"
+      image: "/hero2.png"
+    },
+    {
+      title: t('hero.subtitle1'),
+      subtitle: t('hero.subtitle2'),
+      image: "/hero3.png"
+    },
+    {
+      title: t('hero.subtitle3'),
+      subtitle: t('hero.subtitle4'),
+      image: "/hero4.png"
+    },
+    {
+      title: t('hero.subtitle1'),
+      subtitle: t('hero.subtitle4'),
+      image: "/hero5.png"
     }
   ];
 
@@ -52,10 +67,13 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center h-full">
         <div className="text-center text-white animate-fade-in">
-          <h1 className={`text-4xl md:text-6xl lg:text-7xl font-playfair font-bold mb-6 leading-tight ${language === 'hi' ? 'hindi' : ''}`}>
-            <span className="block text-brand-yellow">{t('hero.title1')}</span>
-            <span className="block">{t('hero.title2')}</span>
-          </h1>
+          <div className="mb-6 flex justify-center">
+            <img 
+              src="/hindilogo.png" 
+              alt="Shree Gopal Ji Bhog" 
+              className="h-48 md:h-72 lg:h-96 w-auto object-contain"
+            />
+          </div>
           
           <div className="transition-all duration-500 ease-in-out">
             <h2 className={`text-xl md:text-2xl lg:text-3xl font-light mb-4 ${language === 'hi' ? 'hindi' : ''}`}>

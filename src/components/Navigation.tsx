@@ -24,7 +24,7 @@ const Navigation = () => {
     { name: t('nav.products'), href: '/products' },
     { name: t('nav.recipes'), href: '/recipes' },
     { name: t('nav.gallery'), href: '/gallery' },
-    { name: t('nav.contact'), href: '#contact' }
+    { name: t('nav.contact'), href: '/contact' }
   ];
 
   const isActive = (href: string) => {
@@ -43,9 +43,11 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/">
-              <h1 className={`text-2xl font-playfair font-bold text-gradient ${language === 'hi' ? 'hindi' : ''}`}>
-                {language === 'hi' ? 'श्री गोपाल जी भोग' : 'Shree Gopal Ji Bhog'}
-              </h1>
+              <img 
+                src="/headerhindi.png" 
+                alt="Shree Gopal Ji Bhog" 
+                className="h-12 w-auto object-contain"
+              />
             </Link>
           </div>
 
@@ -57,7 +59,7 @@ const Navigation = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className={`text-brand-charcoal hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors duration-300 relative group ${language === 'hi' ? 'hindi' : ''}`}
+                    className={`text-yellow-400 hover:text-yellow-300 px-4 py-3 text-base font-medium transition-colors duration-300 relative group ${language === 'hi' ? 'hindi' : ''}`}
                   >
                     {item.name}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-green transition-all duration-300 group-hover:w-full"></span>
@@ -66,10 +68,10 @@ const Navigation = () => {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`px-3 py-2 text-sm font-medium transition-colors duration-300 relative group ${language === 'hi' ? 'hindi' : ''} ${
+                    className={`px-4 py-3 text-base font-medium transition-colors duration-300 relative group ${language === 'hi' ? 'hindi' : ''} ${
                       isActive(item.href) 
-                        ? 'text-brand-green' 
-                        : 'text-brand-charcoal hover:text-brand-green'
+                        ? 'text-yellow-400' 
+                        : 'text-yellow-400 hover:text-yellow-300'
                     }`}
                   >
                     {item.name}
