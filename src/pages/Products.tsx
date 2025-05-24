@@ -1,25 +1,28 @@
+
 import Navigation from '@/components/Navigation';
 import ProductCard from '@/components/ProductCard';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const { t, language } = useLanguage();
 
   const categories = [
-    { id: 'all', name: 'All Products' },
-    { id: 'aata', name: 'Aata' },
-    { id: 'besan', name: 'Besan' },
-    { id: 'multigrain', name: 'Multigrain Flours' },
-    { id: 'specialty', name: 'Specialty Flours' }
+    { id: 'all', name: t('products.allProducts') },
+    { id: 'aata', name: t('products.aata') },
+    { id: 'besan', name: t('products.besan') },
+    { id: 'multigrain', name: t('products.multigrain') },
+    { id: 'specialty', name: t('products.specialty') }
   ];
 
   const products = [
     {
       id: 1,
-      title: "Premium Wheat Aata",
-      description: "Stone-ground whole wheat flour made from carefully selected grains, perfect for making soft rotis and nutritious bread.",
+      title: t('product.wheatAata'),
+      description: t('product.wheatAataDesc'),
       image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=400&h=300&fit=crop",
-      features: ["100% Natural", "Stone Ground", "Rich in Fiber", "No Preservatives"],
+      features: [t('feature.natural'), t('feature.stoneGround'), t('feature.richFiber'), t('feature.noPreservatives')],
       category: 'aata',
       nutritionalInfo: {
         protein: "12g",
@@ -28,14 +31,14 @@ const Products = () => {
         calories: "340"
       },
       packagingOptions: ["1kg", "5kg", "10kg", "25kg"],
-      usageTips: "Perfect for rotis, parathas, and bread. Store in cool, dry place."
+      usageTips: language === 'hi' ? "रोटी, पराठे और ब्रेड के लिए बिल्कुल सही। ठंडी, सूखी जगह पर स्टोर करें।" : "Perfect for rotis, parathas, and bread. Store in cool, dry place."
     },
     {
       id: 2,
-      title: "Pure Besan",
-      description: "Premium gram flour made from high-quality chickpeas, ideal for traditional Indian sweets and savory dishes.",
+      title: t('product.pureBesan'),
+      description: t('product.pureBesanDesc'),
       image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=400&h=300&fit=crop",
-      features: ["Protein Rich", "Gluten Free", "Fresh Ground", "Traditional Process"],
+      features: [t('feature.proteinRich'), t('feature.glutenFree'), t('feature.freshGround'), t('feature.traditionalProcess')],
       category: 'besan',
       nutritionalInfo: {
         protein: "22g",
@@ -44,14 +47,14 @@ const Products = () => {
         calories: "387"
       },
       packagingOptions: ["500g", "1kg", "5kg"],
-      usageTips: "Ideal for pakoras, laddoos, and dhokla. Rich in protein and naturally gluten-free."
+      usageTips: language === 'hi' ? "पकौड़े, लड्डू और ढोकला के लिए आदर्श। प्रोटीन से भरपूर और प्राकृतिक रूप से ग्लूटेन मुक्त।" : "Ideal for pakoras, laddoos, and dhokla. Rich in protein and naturally gluten-free."
     },
     {
       id: 3,
-      title: "Multigrain Flour",
-      description: "Nutritious blend of wheat, millet, and other grains for healthier meals and enhanced nutritional value.",
+      title: t('product.multigrainFlour'),
+      description: t('product.multigrainFlourDesc'),
       image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=400&h=300&fit=crop",
-      features: ["Multi-Nutrient", "Balanced Blend", "Health Focused", "Energy Boosting"],
+      features: [t('feature.multiNutrient'), t('feature.balancedBlend'), t('feature.healthFocused'), t('feature.energyBoosting')],
       category: 'multigrain',
       nutritionalInfo: {
         protein: "14g",
@@ -60,14 +63,14 @@ const Products = () => {
         calories: "350"
       },
       packagingOptions: ["1kg", "5kg"],
-      usageTips: "Perfect for health-conscious families. Great for rotis and baking."
+      usageTips: language === 'hi' ? "स्वास्थ्य-सचेत परिवारों के लिए बिल्कुल सही। रोटी और बेकिंग के लिए बेहतरीन।" : "Perfect for health-conscious families. Great for rotis and baking."
     },
     {
       id: 4,
-      title: "Organic Wheat Aata",
-      description: "100% organic whole wheat flour sourced from certified organic farms, ensuring pure and chemical-free nutrition.",
+      title: t('product.organicWheat'),
+      description: t('product.organicWheatDesc'),
       image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=400&h=300&fit=crop",
-      features: ["Certified Organic", "Chemical Free", "Premium Quality", "Stone Ground"],
+      features: [t('feature.certifiedOrganic'), t('feature.chemicalFree'), t('feature.premiumQuality'), t('feature.stoneGround')],
       category: 'specialty',
       nutritionalInfo: {
         protein: "13g",
@@ -76,14 +79,14 @@ const Products = () => {
         calories: "345"
       },
       packagingOptions: ["1kg", "5kg"],
-      usageTips: "Premium organic option for health-conscious families."
+      usageTips: language === 'hi' ? "स्वास्थ्य-सचेत परिवारों के लिए प्रीमियम जैविक विकल्प।" : "Premium organic option for health-conscious families."
     },
     {
       id: 5,
-      title: "Ragi Flour",
-      description: "Nutritious finger millet flour rich in calcium and iron, perfect for healthy rotis and porridge.",
+      title: t('product.ragiFlour'),
+      description: t('product.ragiFlourDesc'),
       image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=400&h=300&fit=crop",
-      features: ["High Calcium", "Iron Rich", "Gluten Free", "Traditional Grain"],
+      features: [t('feature.highCalcium'), t('feature.ironRich'), t('feature.glutenFree'), t('feature.traditionalGrain')],
       category: 'specialty',
       nutritionalInfo: {
         protein: "7g",
@@ -92,14 +95,14 @@ const Products = () => {
         calories: "336"
       },
       packagingOptions: ["500g", "1kg"],
-      usageTips: "Excellent for babies and health-conscious individuals. Mix with wheat flour for rotis."
+      usageTips: language === 'hi' ? "बच्चों और स्वास्थ्य-सचेत व्यक्तियों के लिए उत्कृष्ट। रोटी के लिए गेहूं के आटे के साथ मिलाएं।" : "Excellent for babies and health-conscious individuals. Mix with wheat flour for rotis."
     },
     {
       id: 6,
-      title: "Bajra Flour",
-      description: "Pearl millet flour with high nutritional value, perfect for traditional bajra rotis and healthy meals.",
+      title: t('product.bajraFlour'),
+      description: t('product.bajraFlourDesc'),
       image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=400&h=300&fit=crop",
-      features: ["High Energy", "Gluten Free", "Rich in Minerals", "Traditional"],
+      features: [t('feature.highEnergy'), t('feature.glutenFree'), t('feature.richMinerals'), t('feature.traditional')],
       category: 'specialty',
       nutritionalInfo: {
         protein: "11g",
@@ -108,7 +111,7 @@ const Products = () => {
         calories: "361"
       },
       packagingOptions: ["500g", "1kg"],
-      usageTips: "Best consumed in winter. Mix with wheat flour for better texture."
+      usageTips: language === 'hi' ? "सर्दियों में सेवन करना सबसे अच्छा। बेहतर बनावट के लिए गेहूं के आटे के साथ मिलाएं।" : "Best consumed in winter. Mix with wheat flour for better texture."
     }
   ];
 
@@ -123,11 +126,11 @@ const Products = () => {
       {/* Hero Section */}
       <section className="pt-20 pb-12 bg-gradient-to-r from-brand-saffron to-brand-maroon text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-playfair font-bold mb-6">
-            Our Products
+          <h1 className={`text-4xl md:text-6xl font-playfair font-bold mb-6 ${language === 'hi' ? 'hindi' : ''}`}>
+            {t('products.title')}
           </h1>
-          <p className="text-xl max-w-3xl mx-auto opacity-90">
-            Discover our range of premium flour products crafted with tradition and care
+          <p className={`text-xl max-w-3xl mx-auto opacity-90 ${language === 'hi' ? 'hindi' : ''}`}>
+            {t('products.subtitle')}
           </p>
         </div>
       </section>
@@ -140,7 +143,7 @@ const Products = () => {
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${language === 'hi' ? 'hindi' : ''} ${
                   selectedCategory === category.id
                     ? 'bg-brand-saffron text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-brand-wheat'
@@ -166,22 +169,22 @@ const Products = () => {
                       alt={product.title}
                       className="w-full h-64 object-cover"
                     />
-                    <div className="absolute top-4 right-4 bg-brand-saffron text-white px-3 py-1 rounded-full text-sm font-semibold">
-                      Premium
+                    <div className={`absolute top-4 right-4 bg-brand-saffron text-white px-3 py-1 rounded-full text-sm font-semibold ${language === 'hi' ? 'hindi' : ''}`}>
+                      {t('common.premium')}
                     </div>
                   </div>
                   
                   <div className="p-6">
-                    <h3 className="text-xl font-playfair font-semibold text-brand-charcoal mb-3">
+                    <h3 className={`text-xl font-playfair font-semibold text-brand-charcoal mb-3 ${language === 'hi' ? 'hindi' : ''}`}>
                       {product.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+                    <p className={`text-gray-600 mb-4 leading-relaxed ${language === 'hi' ? 'hindi' : ''}`}>
                       {product.description}
                     </p>
                     
                     <div className="space-y-2 mb-4">
                       {product.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center text-sm text-gray-700">
+                        <div key={featureIndex} className={`flex items-center text-sm text-gray-700 ${language === 'hi' ? 'hindi' : ''}`}>
                           <div className="w-2 h-2 bg-brand-saffron rounded-full mr-3" />
                           {feature}
                         </div>
@@ -190,18 +193,18 @@ const Products = () => {
 
                     {/* Nutritional Info */}
                     <div className="mb-4 p-3 bg-brand-sand rounded-lg">
-                      <h4 className="font-semibold text-sm text-brand-charcoal mb-2">Nutritional Info (per 100g)</h4>
+                      <h4 className={`font-semibold text-sm text-brand-charcoal mb-2 ${language === 'hi' ? 'hindi' : ''}`}>{t('products.nutritionalInfo')}</h4>
                       <div className="grid grid-cols-2 gap-2 text-xs">
-                        <div>Protein: {product.nutritionalInfo.protein}</div>
-                        <div>Carbs: {product.nutritionalInfo.carbs}</div>
-                        <div>Fiber: {product.nutritionalInfo.fiber}</div>
-                        <div>Calories: {product.nutritionalInfo.calories}</div>
+                        <div>{language === 'hi' ? 'प्रोटीन' : 'Protein'}: {product.nutritionalInfo.protein}</div>
+                        <div>{language === 'hi' ? 'कार्बोहाइड्रेट' : 'Carbs'}: {product.nutritionalInfo.carbs}</div>
+                        <div>{language === 'hi' ? 'फाइबर' : 'Fiber'}: {product.nutritionalInfo.fiber}</div>
+                        <div>{language === 'hi' ? 'कैलोरी' : 'Calories'}: {product.nutritionalInfo.calories}</div>
                       </div>
                     </div>
 
                     {/* Packaging Options */}
                     <div className="mb-4">
-                      <h4 className="font-semibold text-sm text-brand-charcoal mb-2">Available Sizes</h4>
+                      <h4 className={`font-semibold text-sm text-brand-charcoal mb-2 ${language === 'hi' ? 'hindi' : ''}`}>{t('products.availableSizes')}</h4>
                       <div className="flex flex-wrap gap-2">
                         {product.packagingOptions.map((size, sizeIndex) => (
                           <span key={sizeIndex} className="px-2 py-1 bg-brand-wheat text-brand-charcoal rounded text-xs">
@@ -213,12 +216,12 @@ const Products = () => {
 
                     {/* Usage Tips */}
                     <div className="mb-6">
-                      <h4 className="font-semibold text-sm text-brand-charcoal mb-2">Usage Tips</h4>
-                      <p className="text-xs text-gray-600">{product.usageTips}</p>
+                      <h4 className={`font-semibold text-sm text-brand-charcoal mb-2 ${language === 'hi' ? 'hindi' : ''}`}>{t('products.usageTips')}</h4>
+                      <p className={`text-xs text-gray-600 ${language === 'hi' ? 'hindi' : ''}`}>{product.usageTips}</p>
                     </div>
                     
-                    <button className="w-full bg-brand-wheat hover:bg-brand-saffron text-brand-charcoal hover:text-white py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
-                      Learn More
+                    <button className={`w-full bg-brand-wheat hover:bg-brand-saffron text-brand-charcoal hover:text-white py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 ${language === 'hi' ? 'hindi' : ''}`}>
+                      {t('common.learnMore')}
                     </button>
                   </div>
                 </div>
@@ -231,14 +234,14 @@ const Products = () => {
       {/* Call to Action */}
       <section className="section-padding bg-gradient-to-r from-brand-saffron to-brand-maroon text-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6">
-            Need Help Choosing?
+          <h2 className={`text-3xl md:text-4xl font-playfair font-bold mb-6 ${language === 'hi' ? 'hindi' : ''}`}>
+            {t('products.ctaTitle')}
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Our experts are here to help you find the perfect flour for your needs
+          <p className={`text-xl mb-8 max-w-2xl mx-auto opacity-90 ${language === 'hi' ? 'hindi' : ''}`}>
+            {t('products.ctaDescription')}
           </p>
-          <button className="bg-white text-brand-saffron hover:bg-gray-100 font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
-            Contact Our Experts
+          <button className={`bg-white text-brand-saffron hover:bg-gray-100 font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 ${language === 'hi' ? 'hindi' : ''}`}>
+            {t('products.contactExperts')}
           </button>
         </div>
       </section>
@@ -248,46 +251,46 @@ const Products = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-playfair font-bold text-brand-saffron mb-4">
-                Shree Gopal Ji Bhog
+              <h3 className={`text-xl font-playfair font-bold text-brand-saffron mb-4 ${language === 'hi' ? 'hindi' : ''}`}>
+                {language === 'hi' ? 'श्री गोपाल जी भोग' : 'Shree Gopal Ji Bhog'}
               </h3>
-              <p className="text-gray-300 mb-4">
-                Bringing you the finest traditional flour products with modern quality standards.
+              <p className={`text-gray-300 mb-4 ${language === 'hi' ? 'hindi' : ''}`}>
+                {language === 'hi' ? 'आधुनिक गुणवत्ता मानकों के साथ बेहतरीन पारंपरिक आटा उत्पाद लाना।' : 'Bringing you the finest traditional flour products with modern quality standards.'}
               </p>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
+              <h4 className={`font-semibold mb-4 ${language === 'hi' ? 'hindi' : ''}`}>{t('footer.quickLinks')}</h4>
               <ul className="space-y-2 text-gray-300">
-                <li><a href="/" className="hover:text-brand-saffron transition-colors">Home</a></li>
-                <li><a href="/about" className="hover:text-brand-saffron transition-colors">About Us</a></li>
-                <li><a href="/products" className="hover:text-brand-saffron transition-colors">Products</a></li>
-                <li><a href="/recipes" className="hover:text-brand-saffron transition-colors">Recipes</a></li>
+                <li><a href="/" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('nav.home')}</a></li>
+                <li><a href="/about" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('nav.about')}</a></li>
+                <li><a href="/products" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('nav.products')}</a></li>
+                <li><a href="/recipes" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('nav.recipes')}</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Products</h4>
+              <h4 className={`font-semibold mb-4 ${language === 'hi' ? 'hindi' : ''}`}>{t('footer.products')}</h4>
               <ul className="space-y-2 text-gray-300">
-                <li><a href="#" className="hover:text-brand-saffron transition-colors">Wheat Aata</a></li>
-                <li><a href="#" className="hover:text-brand-saffron transition-colors">Besan</a></li>
-                <li><a href="#" className="hover:text-brand-saffron transition-colors">Multigrain Flour</a></li>
-                <li><a href="#" className="hover:text-brand-saffron transition-colors">Specialty Flours</a></li>
+                <li><a href="#" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('products.aata')}</a></li>
+                <li><a href="#" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('products.besan')}</a></li>
+                <li><a href="#" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('products.multigrain')}</a></li>
+                <li><a href="#" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('products.specialty')}</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Contact Info</h4>
+              <h4 className={`font-semibold mb-4 ${language === 'hi' ? 'hindi' : ''}`}>{t('footer.contactInfo')}</h4>
               <div className="space-y-2 text-gray-300">
                 <p>📞 +91 12345 67890</p>
                 <p>✉️ info@shreegopalji.com</p>
-                <p>📍 Mumbai, Maharashtra</p>
+                <p>📍 {language === 'hi' ? 'मुंबई, महाराष्ट्र' : 'Mumbai, Maharashtra'}</p>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Shree Gopal Ji Bhog. All rights reserved.</p>
+          <div className={`border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 ${language === 'hi' ? 'hindi' : ''}`}>
+            <p>{t('footer.copyright')}</p>
           </div>
         </div>
       </footer>

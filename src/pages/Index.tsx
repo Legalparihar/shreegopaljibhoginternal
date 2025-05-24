@@ -3,47 +3,50 @@ import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import ProductCard from '@/components/ProductCard';
 import TestimonialCard from '@/components/TestimonialCard';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Index = () => {
+  const { t, language } = useLanguage();
+
   const products = [
     {
-      title: "Premium Wheat Aata",
-      description: "Stone-ground whole wheat flour made from carefully selected grains, perfect for making soft rotis and nutritious bread.",
+      title: t('product.wheatAata'),
+      description: t('product.wheatAataDesc'),
       image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=400&h=300&fit=crop",
-      features: ["100% Natural", "Stone Ground", "Rich in Fiber", "No Preservatives"]
+      features: [t('feature.natural'), t('feature.stoneGround'), t('feature.richFiber'), t('feature.noPreservatives')]
     },
     {
-      title: "Pure Besan",
-      description: "Premium gram flour made from high-quality chickpeas, ideal for traditional Indian sweets and savory dishes.",
+      title: t('product.pureBesan'),
+      description: t('product.pureBesanDesc'),
       image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=400&h=300&fit=crop",
-      features: ["Protein Rich", "Gluten Free", "Fresh Ground", "Traditional Process"]
+      features: [t('feature.proteinRich'), t('feature.glutenFree'), t('feature.freshGround'), t('feature.traditionalProcess')]
     },
     {
-      title: "Multigrain Flour",
-      description: "Nutritious blend of wheat, millet, and other grains for healthier meals and enhanced nutritional value.",
+      title: t('product.multigrainFlour'),
+      description: t('product.multigrainFlourDesc'),
       image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=400&h=300&fit=crop",
-      features: ["Multi-Nutrient", "Balanced Blend", "Health Focused", "Energy Boosting"]
+      features: [t('feature.multiNutrient'), t('feature.balancedBlend'), t('feature.healthFocused'), t('feature.energyBoosting')]
     }
   ];
 
   const testimonials = [
     {
-      name: "Priya Sharma",
-      location: "Mumbai, Maharashtra",
+      name: "प्रिया शर्मा",
+      location: "मुंबई, महाराष्ट्र",
       rating: 5,
-      review: "The quality of Shree Gopal Ji Bhog aata is exceptional. My rotis are softer and more nutritious than ever before!"
+      review: language === 'hi' ? "श्री गोपाल जी भोग आटे की गुणवत्ता असाधारण है। मेरी रोटियां पहले से कहीं अधिक मुलायम और पौष्टिक हैं!" : "The quality of Shree Gopal Ji Bhog aata is exceptional. My rotis are softer and more nutritious than ever before!"
     },
     {
-      name: "Rajesh Kumar",
-      location: "Delhi, NCR",
+      name: "राजेश कुमार",
+      location: "दिल्ली, एनसीआर",
       rating: 5,
-      review: "Best besan I've used for making pakoras. The taste and texture are perfect for authentic Indian cooking."
+      review: language === 'hi' ? "पकौड़े बनाने के लिए मैंने इस्तेमाल किया है यह सबसे अच्छा बेसन है। प्रामाणिक भारतीय खाना पकाने के लिए स्वाद और बनावट बिल्कुल सही है।" : "Best besan I've used for making pakoras. The taste and texture are perfect for authentic Indian cooking."
     },
     {
-      name: "Meera Patel",
-      location: "Ahmedabad, Gujarat",
+      name: "मीरा पटेल",
+      location: "अहमदाबाद, गुजरात",
       rating: 5,
-      review: "Traditional quality with modern packaging. My family loves the purity and freshness of these products."
+      review: language === 'hi' ? "आधुनिक पैकेजिंग के साथ पारंपरिक गुणवत्ता। मेरे परिवार को इन उत्पादों की शुद्धता और ताजगी पसंद है।" : "Traditional quality with modern packaging. My family loves the purity and freshness of these products."
     }
   ];
 
@@ -56,11 +59,11 @@ const Index = () => {
       {/* Brand Promise Section */}
       <section className="section-padding bg-white grain-overlay">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-gradient mb-6">
-            Our Promise of Purity
+          <h2 className={`text-3xl md:text-4xl font-playfair font-bold text-gradient mb-6 ${language === 'hi' ? 'hindi' : ''}`}>
+            {t('home.promiseTitle')}
           </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-12">
-            At Shree Gopal Ji Bhog, we believe in preserving the traditional methods of flour making while ensuring the highest quality standards. Every grain is hand-picked, and every batch is made with care and devotion.
+          <p className={`text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-12 ${language === 'hi' ? 'hindi' : ''}`}>
+            {t('home.promiseDescription')}
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -68,24 +71,24 @@ const Index = () => {
               <div className="w-16 h-16 bg-brand-saffron rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl">🌾</span>
               </div>
-              <h3 className="text-xl font-playfair font-semibold mb-2">Pure Ingredients</h3>
-              <p className="text-gray-600">Hand-selected grains from trusted farmers</p>
+              <h3 className={`text-xl font-playfair font-semibold mb-2 ${language === 'hi' ? 'hindi' : ''}`}>{t('home.pureIngredients')}</h3>
+              <p className={`text-gray-600 ${language === 'hi' ? 'hindi' : ''}`}>{t('home.pureIngredientsDesc')}</p>
             </div>
             
             <div className="text-center animate-slide-up animation-delay-200">
               <div className="w-16 h-16 bg-brand-maroon rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl">⚡</span>
               </div>
-              <h3 className="text-xl font-playfair font-semibold mb-2">Traditional Process</h3>
-              <p className="text-gray-600">Stone-ground using time-tested methods</p>
+              <h3 className={`text-xl font-playfair font-semibold mb-2 ${language === 'hi' ? 'hindi' : ''}`}>{t('home.traditionalProcess')}</h3>
+              <p className={`text-gray-600 ${language === 'hi' ? 'hindi' : ''}`}>{t('home.traditionalProcessDesc')}</p>
             </div>
             
             <div className="text-center animate-slide-up animation-delay-400">
               <div className="w-16 h-16 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl">💚</span>
               </div>
-              <h3 className="text-xl font-playfair font-semibold mb-2">Health First</h3>
-              <p className="text-gray-600">No chemicals, no preservatives, just pure nutrition</p>
+              <h3 className={`text-xl font-playfair font-semibold mb-2 ${language === 'hi' ? 'hindi' : ''}`}>{t('home.healthFirst')}</h3>
+              <p className={`text-gray-600 ${language === 'hi' ? 'hindi' : ''}`}>{t('home.healthFirstDesc')}</p>
             </div>
           </div>
         </div>
@@ -95,11 +98,11 @@ const Index = () => {
       <section id="products" className="section-padding bg-brand-sand">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-playfair font-bold text-gradient mb-6">
-              Our Premium Products
+            <h2 className={`text-3xl md:text-4xl font-playfair font-bold text-gradient mb-6 ${language === 'hi' ? 'hindi' : ''}`}>
+              {t('home.productsTitle')}
             </h2>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-              Discover our range of carefully crafted flour products, made with traditional methods and modern quality standards.
+            <p className={`text-lg text-gray-700 max-w-2xl mx-auto ${language === 'hi' ? 'hindi' : ''}`}>
+              {t('home.productsDescription')}
             </p>
           </div>
           
@@ -118,17 +121,17 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-up">
-              <h2 className="text-3xl md:text-4xl font-playfair font-bold text-gradient mb-6">
-                Traditional Recipes, Modern Kitchen
+              <h2 className={`text-3xl md:text-4xl font-playfair font-bold text-gradient mb-6 ${language === 'hi' ? 'hindi' : ''}`}>
+                {t('home.recipeTitle')}
               </h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Discover authentic Indian recipes that bring out the best flavors using our premium flour products. From soft rotis to crispy pakoras, create memorable meals for your family.
+              <p className={`text-lg text-gray-700 mb-6 leading-relaxed ${language === 'hi' ? 'hindi' : ''}`}>
+                {t('home.recipeDescription')}
               </p>
-              <button className="btn-primary mb-6">
-                Explore Recipes
+              <button className={`btn-primary mb-6 ${language === 'hi' ? 'hindi' : ''}`}>
+                {t('home.exploreRecipes')}
               </button>
-              <div className="text-sm text-gray-600">
-                ✨ Over 50+ traditional recipes available
+              <div className={`text-sm text-gray-600 ${language === 'hi' ? 'hindi' : ''}`}>
+                {language === 'hi' ? '✨ 50+ से अधिक पारंपरिक व्यंजन उपलब्ध' : '✨ Over 50+ traditional recipes available'}
               </div>
             </div>
             
@@ -147,11 +150,11 @@ const Index = () => {
       <section id="testimonials" className="section-padding bg-brand-sand">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-playfair font-bold text-gradient mb-6">
-              What Our Customers Say
+            <h2 className={`text-3xl md:text-4xl font-playfair font-bold text-gradient mb-6 ${language === 'hi' ? 'hindi' : ''}`}>
+              {t('home.testimonialsTitle')}
             </h2>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-              Join thousands of satisfied customers who trust Shree Gopal Ji Bhog for their daily flour needs.
+            <p className={`text-lg text-gray-700 max-w-2xl mx-auto ${language === 'hi' ? 'hindi' : ''}`}>
+              {t('home.testimonialsDescription')}
             </p>
           </div>
           
@@ -168,18 +171,18 @@ const Index = () => {
       {/* Call to Action */}
       <section className="section-padding bg-gradient-to-r from-brand-saffron to-brand-maroon text-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6">
-            Experience the Purity Today
+          <h2 className={`text-3xl md:text-4xl font-playfair font-bold mb-6 ${language === 'hi' ? 'hindi' : ''}`}>
+            {t('home.ctaTitle')}
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Join the Shree Gopal Ji Bhog family and taste the difference that pure, traditional flour makes in your kitchen.
+          <p className={`text-xl mb-8 max-w-2xl mx-auto opacity-90 ${language === 'hi' ? 'hindi' : ''}`}>
+            {t('home.ctaDescription')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-brand-saffron hover:bg-gray-100 font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
-              Find a Distributor
+            <button className={`bg-white text-brand-saffron hover:bg-gray-100 font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 ${language === 'hi' ? 'hindi' : ''}`}>
+              {t('common.findDistributor')}
             </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-brand-maroon font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
-              Contact Us
+            <button className={`border-2 border-white text-white hover:bg-white hover:text-brand-maroon font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 ${language === 'hi' ? 'hindi' : ''}`}>
+              {t('common.contactUs')}
             </button>
           </div>
         </div>
@@ -190,46 +193,46 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-playfair font-bold text-brand-saffron mb-4">
-                Shree Gopal Ji Bhog
+              <h3 className={`text-xl font-playfair font-bold text-brand-saffron mb-4 ${language === 'hi' ? 'hindi' : ''}`}>
+                {language === 'hi' ? 'श्री गोपाल जी भोग' : 'Shree Gopal Ji Bhog'}
               </h3>
-              <p className="text-gray-300 mb-4">
-                Bringing you the finest traditional flour products with modern quality standards.
+              <p className={`text-gray-300 mb-4 ${language === 'hi' ? 'hindi' : ''}`}>
+                {language === 'hi' ? 'आधुनिक गुणवत्ता मानकों के साथ बेहतरीन पारंपरिक आटा उत्पाद लाना।' : 'Bringing you the finest traditional flour products with modern quality standards.'}
               </p>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
+              <h4 className={`font-semibold mb-4 ${language === 'hi' ? 'hindi' : ''}`}>{t('footer.quickLinks')}</h4>
               <ul className="space-y-2 text-gray-300">
-                <li><a href="#home" className="hover:text-brand-saffron transition-colors">Home</a></li>
-                <li><a href="#about" className="hover:text-brand-saffron transition-colors">About Us</a></li>
-                <li><a href="#products" className="hover:text-brand-saffron transition-colors">Products</a></li>
-                <li><a href="#contact" className="hover:text-brand-saffron transition-colors">Contact</a></li>
+                <li><a href="/" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('nav.home')}</a></li>
+                <li><a href="/about" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('nav.about')}</a></li>
+                <li><a href="/products" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('nav.products')}</a></li>
+                <li><a href="/recipes" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('nav.recipes')}</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Products</h4>
+              <h4 className={`font-semibold mb-4 ${language === 'hi' ? 'hindi' : ''}`}>{t('footer.products')}</h4>
               <ul className="space-y-2 text-gray-300">
-                <li><a href="#" className="hover:text-brand-saffron transition-colors">Wheat Aata</a></li>
-                <li><a href="#" className="hover:text-brand-saffron transition-colors">Besan</a></li>
-                <li><a href="#" className="hover:text-brand-saffron transition-colors">Multigrain Flour</a></li>
-                <li><a href="#" className="hover:text-brand-saffron transition-colors">Specialty Flours</a></li>
+                <li><a href="#" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('products.aata')}</a></li>
+                <li><a href="#" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('products.besan')}</a></li>
+                <li><a href="#" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('products.multigrain')}</a></li>
+                <li><a href="#" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('products.specialty')}</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Contact Info</h4>
+              <h4 className={`font-semibold mb-4 ${language === 'hi' ? 'hindi' : ''}`}>{t('footer.contactInfo')}</h4>
               <div className="space-y-2 text-gray-300">
                 <p>📞 +91 12345 67890</p>
                 <p>✉️ info@shreegopalji.com</p>
-                <p>📍 Mumbai, Maharashtra</p>
+                <p>📍 {language === 'hi' ? 'मुंबई, महाराष्ट्र' : 'Mumbai, Maharashtra'}</p>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Shree Gopal Ji Bhog. All rights reserved.</p>
+          <div className={`border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 ${language === 'hi' ? 'hindi' : ''}`}>
+            <p>{t('footer.copyright')}</p>
           </div>
         </div>
       </footer>

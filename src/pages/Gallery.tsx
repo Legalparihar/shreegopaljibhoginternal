@@ -1,89 +1,92 @@
+
 import Navigation from '@/components/Navigation';
 import { useState } from 'react';
 import { Play } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
+  const { t, language } = useLanguage();
 
   const categories = [
-    { id: 'all', name: 'All Media' },
-    { id: 'production', name: 'Production Process' },
-    { id: 'packaging', name: 'Packaging' },
-    { id: 'events', name: 'Events & Exhibitions' },
-    { id: 'videos', name: 'Videos' }
+    { id: 'all', name: t('gallery.allMedia') },
+    { id: 'production', name: t('gallery.production') },
+    { id: 'packaging', name: t('gallery.packaging') },
+    { id: 'events', name: t('gallery.events') },
+    { id: 'videos', name: t('gallery.videos') }
   ];
 
   const galleryItems = [
     {
       id: 1,
       type: 'image',
-      title: "Traditional Stone Grinding",
-      description: "Our traditional stone grinding process ensures the natural nutrients are preserved",
+      title: language === 'hi' ? "पारंपरिक पत्थर की पिसाई" : "Traditional Stone Grinding",
+      description: language === 'hi' ? "हमारी पारंपरिक पत्थर की पिसाई प्रक्रिया सुनिश्चित करती है कि प्राकृतिक पोषक तत्व संरक्षित रहें" : "Our traditional stone grinding process ensures the natural nutrients are preserved",
       image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600&h=400&fit=crop",
       category: 'production'
     },
     {
       id: 2,
       type: 'image',
-      title: "Quality Grain Selection",
-      description: "Hand-picked grains from trusted farmers across India",
+      title: language === 'hi' ? "गुणवत्तापूर्ण अनाज चयन" : "Quality Grain Selection",
+      description: language === 'hi' ? "भारत भर के विश्वसनीय किसानों से हाथ से चुने गए अनाज" : "Hand-picked grains from trusted farmers across India",
       image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=600&h=400&fit=crop",
       category: 'production'
     },
     {
       id: 3,
       type: 'image',
-      title: "Premium Packaging",
-      description: "Eco-friendly packaging that preserves freshness and quality",
+      title: language === 'hi' ? "प्रीमियम पैकेजिंग" : "Premium Packaging",
+      description: language === 'hi' ? "पर्यावरण-अनुकूल पैकेजिंग जो ताजगी और गुणवत्ता को संरक्षित करती है" : "Eco-friendly packaging that preserves freshness and quality",
       image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=600&h=400&fit=crop",
       category: 'packaging'
     },
     {
       id: 4,
       type: 'video',
-      title: "Production Process Tour",
-      description: "Take a virtual tour of our production facility and see how we make our products",
+      title: language === 'hi' ? "उत्पादन प्रक्रिया टूर" : "Production Process Tour",
+      description: language === 'hi' ? "हमारी उत्पादन सुविधा का वर्चुअल टूर लें और देखें कि हम अपने उत्पाद कैसे बनाते हैं" : "Take a virtual tour of our production facility and see how we make our products",
       thumbnail: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600&h=400&fit=crop",
       category: 'videos'
     },
     {
       id: 5,
       type: 'image',
-      title: "Food Exhibition 2024",
-      description: "Our participation in the National Food Exhibition",
+      title: language === 'hi' ? "खाद्य प्रदर्शनी 2024" : "Food Exhibition 2024",
+      description: language === 'hi' ? "राष्ट्रीय खाद्य प्रदर्शनी में हमारी भागीदारी" : "Our participation in the National Food Exhibition",
       image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&h=400&fit=crop",
       category: 'events'
     },
     {
       id: 6,
       type: 'image',
-      title: "Final Product Range",
-      description: "Our complete range of premium flour products",
+      title: language === 'hi' ? "अंतिम उत्पाद श्रृंखला" : "Final Product Range",
+      description: language === 'hi' ? "हमारे प्रीमियम आटा उत्पादों की पूरी श्रृंखला" : "Our complete range of premium flour products",
       image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=600&h=400&fit=crop",
       category: 'packaging'
     },
     {
       id: 7,
       type: 'video',
-      title: "Customer Testimonials",
-      description: "Hear what our customers have to say about our products",
+      title: language === 'hi' ? "ग्राहक प्रशंसापत्र" : "Customer Testimonials",
+      description: language === 'hi' ? "हमारे ग्राहक हमारे उत्पादों के बारे में क्या कहते हैं, सुनें" : "Hear what our customers have to say about our products",
       thumbnail: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&h=400&fit=crop",
       category: 'videos'
     },
     {
       id: 8,
       type: 'image',
-      title: "Farmer Partnership Program",
-      description: "Direct partnerships with local farmers for quality assurance",
+      title: language === 'hi' ? "किसान साझेदारी कार्यक्रम" : "Farmer Partnership Program",
+      description: language === 'hi' ? "गुणवत्ता आश्वासन के लिए स्थानीय किसानों के साथ प्रत्यक्ष साझेदारी" : "Direct partnerships with local farmers for quality assurance",
       image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=400&fit=crop",
       category: 'events'
     },
     {
       id: 9,
       type: 'image',
-      title: "Quality Testing Lab",
-      description: "Our state-of-the-art quality testing facility",
+      title: language === 'hi' ? "गुणवत्ता परीक्षण प्रयोगशाला" : "Quality Testing Lab",
+      description: language === 'hi' ? "हमारी अत्याधुनिक गुणवत्ता परीक्षण सुविधा" : "Our state-of-the-art quality testing facility",
       image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600&h=400&fit=crop",
       category: 'production'
     }
@@ -100,11 +103,11 @@ const Gallery = () => {
       {/* Hero Section */}
       <section className="pt-20 pb-12 bg-gradient-to-r from-brand-saffron to-brand-maroon text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-playfair font-bold mb-6">
-            Gallery
+          <h1 className={`text-4xl md:text-6xl font-playfair font-bold mb-6 ${language === 'hi' ? 'hindi' : ''}`}>
+            {t('gallery.title')}
           </h1>
-          <p className="text-xl max-w-3xl mx-auto opacity-90">
-            Explore our journey through images and videos showcasing our commitment to quality
+          <p className={`text-xl max-w-3xl mx-auto opacity-90 ${language === 'hi' ? 'hindi' : ''}`}>
+            {t('gallery.subtitle')}
           </p>
         </div>
       </section>
@@ -117,7 +120,7 @@ const Gallery = () => {
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${language === 'hi' ? 'hindi' : ''} ${
                   selectedCategory === category.id
                     ? 'bg-brand-saffron text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-brand-wheat'
@@ -155,16 +158,16 @@ const Gallery = () => {
                       </div>
                     )}
                     
-                    <div className="absolute top-4 left-4 bg-brand-saffron text-white px-3 py-1 rounded-full text-sm font-semibold capitalize">
-                      {item.type}
+                    <div className={`absolute top-4 left-4 bg-brand-saffron text-white px-3 py-1 rounded-full text-sm font-semibold capitalize ${language === 'hi' ? 'hindi' : ''}`}>
+                      {item.type === 'video' ? (language === 'hi' ? 'वीडियो' : 'Video') : (language === 'hi' ? 'तस्वीर' : 'Image')}
                     </div>
                   </div>
                   
                   <div className="p-6">
-                    <h3 className="text-xl font-playfair font-semibold text-brand-charcoal mb-3">
+                    <h3 className={`text-xl font-playfair font-semibold text-brand-charcoal mb-3 ${language === 'hi' ? 'hindi' : ''}`}>
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className={`text-gray-600 leading-relaxed ${language === 'hi' ? 'hindi' : ''}`}>
                       {item.description}
                     </p>
                   </div>
@@ -194,16 +197,16 @@ const Gallery = () => {
               />
               
               <div className="p-6">
-                <h3 className="text-2xl font-playfair font-bold text-brand-charcoal mb-3">
+                <h3 className={`text-2xl font-playfair font-bold text-brand-charcoal mb-3 ${language === 'hi' ? 'hindi' : ''}`}>
                   {selectedImage.title}
                 </h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className={`text-gray-700 leading-relaxed ${language === 'hi' ? 'hindi' : ''}`}>
                   {selectedImage.description}
                 </p>
                 
                 {selectedImage.type === 'video' && (
-                  <button className="mt-4 bg-brand-saffron text-white px-6 py-3 rounded-lg hover:bg-brand-maroon transition-colors">
-                    Watch Video
+                  <button className={`mt-4 bg-brand-saffron text-white px-6 py-3 rounded-lg hover:bg-brand-maroon transition-colors ${language === 'hi' ? 'hindi' : ''}`}>
+                    {language === 'hi' ? 'वीडियो देखें' : 'Watch Video'}
                   </button>
                 )}
               </div>
@@ -215,11 +218,11 @@ const Gallery = () => {
       {/* Video Showcase */}
       <section className="section-padding bg-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-gradient mb-6">
-            Featured Videos
+          <h2 className={`text-3xl md:text-4xl font-playfair font-bold text-gradient mb-6 ${language === 'hi' ? 'hindi' : ''}`}>
+            {t('gallery.featuredVideos')}
           </h2>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-12">
-            Watch our production process and hear from satisfied customers
+          <p className={`text-lg text-gray-700 max-w-2xl mx-auto mb-12 ${language === 'hi' ? 'hindi' : ''}`}>
+            {t('gallery.featuredDescription')}
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -235,8 +238,8 @@ const Gallery = () => {
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
-                <h3 className="text-white text-xl font-playfair font-semibold">
-                  From Grain to Flour: Our Process
+                <h3 className={`text-white text-xl font-playfair font-semibold ${language === 'hi' ? 'hindi' : ''}`}>
+                  {t('gallery.productionVideo')}
                 </h3>
               </div>
             </div>
@@ -253,8 +256,8 @@ const Gallery = () => {
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
-                <h3 className="text-white text-xl font-playfair font-semibold">
-                  Customer Stories & Reviews
+                <h3 className={`text-white text-xl font-playfair font-semibold ${language === 'hi' ? 'hindi' : ''}`}>
+                  {t('gallery.testimonialsVideo')}
                 </h3>
               </div>
             </div>
@@ -267,46 +270,46 @@ const Gallery = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-playfair font-bold text-brand-saffron mb-4">
-                Shree Gopal Ji Bhog
+              <h3 className={`text-xl font-playfair font-bold text-brand-saffron mb-4 ${language === 'hi' ? 'hindi' : ''}`}>
+                {language === 'hi' ? 'श्री गोपाल जी भोग' : 'Shree Gopal Ji Bhog'}
               </h3>
-              <p className="text-gray-300 mb-4">
-                Bringing you the finest traditional flour products with modern quality standards.
+              <p className={`text-gray-300 mb-4 ${language === 'hi' ? 'hindi' : ''}`}>
+                {language === 'hi' ? 'आधुनिक गुणवत्ता मानकों के साथ बेहतरीन पारंपरिक आटा उत्पाद लाना।' : 'Bringing you the finest traditional flour products with modern quality standards.'}
               </p>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
+              <h4 className={`font-semibold mb-4 ${language === 'hi' ? 'hindi' : ''}`}>{t('footer.quickLinks')}</h4>
               <ul className="space-y-2 text-gray-300">
-                <li><a href="/" className="hover:text-brand-saffron transition-colors">Home</a></li>
-                <li><a href="/about" className="hover:text-brand-saffron transition-colors">About Us</a></li>
-                <li><a href="/products" className="hover:text-brand-saffron transition-colors">Products</a></li>
-                <li><a href="/recipes" className="hover:text-brand-saffron transition-colors">Recipes</a></li>
+                <li><a href="/" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('nav.home')}</a></li>
+                <li><a href="/about" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('nav.about')}</a></li>
+                <li><a href="/products" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('nav.products')}</a></li>
+                <li><a href="/recipes" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('nav.recipes')}</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Products</h4>
+              <h4 className={`font-semibold mb-4 ${language === 'hi' ? 'hindi' : ''}`}>{t('footer.products')}</h4>
               <ul className="space-y-2 text-gray-300">
-                <li><a href="#" className="hover:text-brand-saffron transition-colors">Wheat Aata</a></li>
-                <li><a href="#" className="hover:text-brand-saffron transition-colors">Besan</a></li>
-                <li><a href="#" className="hover:text-brand-saffron transition-colors">Multigrain Flour</a></li>
-                <li><a href="#" className="hover:text-brand-saffron transition-colors">Specialty Flours</a></li>
+                <li><a href="#" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('products.aata')}</a></li>
+                <li><a href="#" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('products.besan')}</a></li>
+                <li><a href="#" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('products.multigrain')}</a></li>
+                <li><a href="#" className={`hover:text-brand-saffron transition-colors ${language === 'hi' ? 'hindi' : ''}`}>{t('products.specialty')}</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Contact Info</h4>
+              <h4 className={`font-semibold mb-4 ${language === 'hi' ? 'hindi' : ''}`}>{t('footer.contactInfo')}</h4>
               <div className="space-y-2 text-gray-300">
                 <p>📞 +91 12345 67890</p>
                 <p>✉️ info@shreegopalji.com</p>
-                <p>📍 Mumbai, Maharashtra</p>
+                <p>📍 {language === 'hi' ? 'मुंबई, महाराष्ट्र' : 'Mumbai, Maharashtra'}</p>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Shree Gopal Ji Bhog. All rights reserved.</p>
+          <div className={`border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 ${language === 'hi' ? 'hindi' : ''}`}>
+            <p>{t('footer.copyright')}</p>
           </div>
         </div>
       </footer>
