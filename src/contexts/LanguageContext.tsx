@@ -36,7 +36,7 @@ const translations = {
     'common.viewAll': 'View All',
     'common.readMore': 'Read More',
     'common.premium': 'Premium',
-    'common.findDistributor': 'Find a Distributor',
+    'common.findDistributor': 'Become a Distributor',
     'common.contactUs': 'Contact Us',
     
     // Home Page
@@ -138,7 +138,8 @@ const translations = {
     'contact.form.message': 'Your Message',
     'contact.form.messagePlaceholder': 'Type your message here...',
     'contact.form.submit': 'Send Message',
-    'contact.viewLargerMap': 'Start Direction Now',
+    'contact.viewLargerMap': 'View Larger Map',
+    'contact.followUs': 'Follow Us',
     
     // Footer
     'footer.quickLinks': 'Quick Links',
@@ -300,6 +301,7 @@ const translations = {
     'contact.weekdays': 'सोमवार - शुक्रवार',
     'contact.weekend': 'शनिवार - रविवार',
     'contact.mapTitle': 'मानचित्र पर हमारा स्थान',
+    'contact.getDirections': 'दिशा-निर्देश प्राप्त करें',
     'contact.form.name': 'आपका नाम',
     'contact.form.namePlaceholder': 'अपना नाम दर्ज करें',
     'contact.form.email': 'ईमेल पता',
@@ -310,6 +312,15 @@ const translations = {
     'contact.form.messagePlaceholder': 'अपना संदेश यहां टाइप करें...',
     'contact.form.submit': 'संदेश भेजें',
     'contact.viewLargerMap': 'दिशा शुरू करें',
+    'contact.faqTitle': 'अक्सर पूछे जाने वाले प्रश्न',
+    'contact.faq1.question': 'आपके काम के घंटे क्या हैं?',
+    'contact.faq1.answer': 'हमारी ग्राहक सेवा सोमवार से शुक्रवार सुबह 9:00 बजे से शाम 6:00 बजे तक उपलब्ध है। आप हमें ईमेल के माध्यम से भी 24/7 संपर्क कर सकते हैं।',
+    'contact.faq2.question': 'मैं अपने ऑर्डर को कैसे ट्रैक कर सकता हूं?',
+    'contact.faq2.answer': 'एक बार आपका ऑर्डर शिप हो जाने के बाद, आपको एक ट्रैकिंग नंबर ईमेल किया जाएगा जिसका उपयोग करके आप अपने पैकेज को ट्रैक कर सकते हैं।',
+    'contact.faq3.question': 'आपकी वापसी नीति क्या है?',
+    'contact.faq4.question': 'क्या आप थोक छूट प्रदान करते हैं?',
+    'contact.followUs': 'हमें फॉलो करें',
+    'contact.faq4.answer': 'हां, हम थोक ऑर्डर के लिए विशेष मूल्य निर्धारण प्रदान करते हैं। अधिक जानकारी के लिए कृपया हमारी बिक्री टीम से संपर्क करें।',
     
     // Footer
     'footer.quickLinks': 'त्वरित लिंक',

@@ -36,7 +36,9 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      location.pathname === '/' 
+        ? (isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent')
+        : 'bg-gray-200 shadow-lg text-gray-800'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
@@ -46,7 +48,7 @@ const Navigation = () => {
               <img 
                 src="/headerhindi.png" 
                 alt="Shree Gopal Ji Bhog" 
-                className="h-12 w-auto object-contain"
+                className="h-14 md:h-16 w-auto object-contain transition-all duration-300 hover:scale-105"
               />
             </Link>
           </div>
@@ -59,7 +61,7 @@ const Navigation = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className={`text-yellow-400 hover:text-yellow-300 px-4 py-3 text-base font-medium transition-colors duration-300 relative group ${language === 'hi' ? 'hindi' : ''}`}
+                    className={`${location.pathname === '/' ? 'text-yellow-400 hover:text-yellow-300' : 'text-gray-800 hover:text-brand-maroon'} px-4 py-3 text-base font-medium transition-colors duration-300 relative group ${language === 'hi' ? 'hindi' : ''}`}
                   >
                     {item.name}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-green transition-all duration-300 group-hover:w-full"></span>
@@ -69,9 +71,9 @@ const Navigation = () => {
                     key={item.name}
                     to={item.href}
                     className={`px-4 py-3 text-base font-medium transition-colors duration-300 relative group ${language === 'hi' ? 'hindi' : ''} ${
-                      isActive(item.href) 
-                        ? 'text-yellow-400' 
-                        : 'text-yellow-400 hover:text-yellow-300'
+                      isActive(item.href)
+                        ? (location.pathname === '/' ? 'text-yellow-400' : 'text-brand-maroon')
+                        : (location.pathname === '/' ? 'text-yellow-400 hover:text-yellow-300' : 'text-gray-800 hover:text-brand-maroon')
                     }`}
                   >
                     {item.name}
@@ -85,7 +87,7 @@ const Navigation = () => {
               {/* Language Toggle */}
               <button
                 onClick={toggleLanguage}
-                className="language-toggle flex items-center space-x-2"
+                className={`flex items-center space-x-2 ${location.pathname === '/' ? 'text-yellow-400' : 'text-gray-800 hover:text-brand-maroon'}`}
               >
                 <Globe size={16} />
                 <span>{language === 'en' ? 'हिं' : 'EN'}</span>
@@ -97,13 +99,13 @@ const Navigation = () => {
           <div className="md:hidden flex items-center space-x-2">
             <button
               onClick={toggleLanguage}
-              className="language-toggle"
+              className={`${location.pathname === '/' ? 'text-brand-charcoal' : 'text-gray-800'} hover:text-brand-maroon`}
             >
               <Globe size={16} />
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-brand-charcoal hover:text-brand-green p-2"
+              className={`${location.pathname === '/' ? 'text-brand-charcoal' : 'text-gray-800'} hover:text-brand-maroon p-2`}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -119,7 +121,11 @@ const Navigation = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className={`text-brand-charcoal hover:text-brand-green block px-3 py-2 text-base font-medium transition-colors duration-300 ${language === 'hi' ? 'hindi' : ''}`}
+                    className={`block px-3 py-2 text-base font-medium transition-colors duration-300 ${language === 'hi' ? 'hindi' : ''} ${
+                      isActive(item.href)
+                        ? 'text-brand-maroon font-semibold'
+                        : 'text-gray-700 hover:text-brand-maroon/80'
+                    }`}
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
@@ -129,9 +135,9 @@ const Navigation = () => {
                     key={item.name}
                     to={item.href}
                     className={`block px-3 py-2 text-base font-medium transition-colors duration-300 ${language === 'hi' ? 'hindi' : ''} ${
-                      isActive(item.href) 
-                        ? 'text-brand-green bg-brand-cream' 
-                        : 'text-brand-charcoal hover:text-brand-green'
+                      isActive(item.href)
+                        ? 'text-brand-maroon font-semibold bg-gray-100'
+                        : 'text-gray-700 hover:text-brand-maroon/80'
                     }`}
                     onClick={() => setIsOpen(false)}
                   >

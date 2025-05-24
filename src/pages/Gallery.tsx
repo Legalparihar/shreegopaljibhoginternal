@@ -101,14 +101,18 @@ const Gallery = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-12 bg-gradient-to-r from-brand-saffron to-brand-maroon text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className={`text-4xl md:text-6xl font-playfair font-bold mb-6 ${language === 'hi' ? 'hindi' : ''}`}>
-            {t('gallery.title')}
-          </h1>
-          <p className={`text-xl max-w-3xl mx-auto opacity-90 ${language === 'hi' ? 'hindi' : ''}`}>
-            {t('gallery.subtitle')}
-          </p>
+      <section className="relative pt-28 pb-20 overflow-hidden bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNDEsMTk2LDE1LDAuMDUpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+')] opacity-30"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <h1 className={`text-4xl md:text-5xl lg:text-6xl font-playfair font-bold mb-6 text-amber-900 ${language === 'hi' ? 'hindi' : ''}`}>
+              {t('gallery.title')}
+            </h1>
+            <div className="w-24 h-1.5 bg-amber-500 mx-auto mb-6 rounded-full"></div>
+            <p className={`text-lg md:text-xl text-amber-800/90 max-w-2xl mx-auto leading-relaxed ${language === 'hi' ? 'hindi' : ''}`}>
+              {t('gallery.subtitle')}
+            </p>
+          </div>
         </div>
       </section>
 

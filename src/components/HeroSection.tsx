@@ -65,13 +65,13 @@ const HeroSection = () => {
       <div className="absolute inset-0 hero-pattern" />
 
       {/* Content */}
-      <div className="relative z-10 flex items-center justify-center h-full">
+      <div className="relative z-10 flex items-center justify-center h-full pt-16 pb-24">
         <div className="text-center text-white animate-fade-in">
-          <div className="mb-6 flex justify-center">
+          <div className="mb-4 md:mb-6 flex justify-center">
             <img 
               src="/hindilogo.png" 
               alt="Shree Gopal Ji Bhog" 
-              className="h-48 md:h-72 lg:h-96 w-auto object-contain"
+              className="h-48 md:h-72 lg:h-[28rem] w-auto object-contain transition-all duration-300 hover:scale-105"
             />
           </div>
           

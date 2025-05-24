@@ -169,23 +169,31 @@ const Index = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="section-padding bg-gradient-to-r from-brand-saffron to-brand-maroon text-white">
-        <div className="container mx-auto text-center">
-          <h2 className={`text-3xl md:text-4xl font-playfair font-bold mb-6 ${language === 'hi' ? 'hindi' : ''}`}>
+      <section className="section-padding bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNDEsMTk2LDE1LDAuMDUpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBvcGFjaXR5PSIwLjI1Ii8+PC9zdmc+')] opacity-20"></div>
+        
+        <div className="container mx-auto text-center relative z-10">
+          <h2 className={`text-3xl md:text-4xl font-playfair font-bold mb-6 text-amber-900 ${language === 'hi' ? 'hindi' : ''}`}>
             {t('home.ctaTitle')}
           </h2>
-          <p className={`text-xl mb-8 max-w-2xl mx-auto opacity-90 ${language === 'hi' ? 'hindi' : ''}`}>
+          <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-amber-600 mx-auto mb-6 rounded-full"></div>
+          <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto text-amber-800 leading-relaxed ${language === 'hi' ? 'hindi' : ''}`}>
             {t('home.ctaDescription')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className={`bg-white text-brand-saffron hover:bg-gray-100 font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 ${language === 'hi' ? 'hindi' : ''}`}>
+            <button className={`bg-gradient-to-r from-amber-600 to-amber-700 text-white hover:from-amber-700 hover:to-amber-800 font-semibold px-8 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 ${language === 'hi' ? 'hindi' : ''}`}>
               {t('common.findDistributor')}
             </button>
-            <button className={`border-2 border-white text-white hover:bg-white hover:text-brand-maroon font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 ${language === 'hi' ? 'hindi' : ''}`}>
+            <button className={`border-2 border-amber-600 text-amber-700 hover:bg-amber-50 font-semibold px-8 py-3 rounded-full shadow-sm hover:shadow transition-all duration-300 transform hover:-translate-y-0.5 ${language === 'hi' ? 'hindi' : ''}`}>
               {t('common.contactUs')}
             </button>
           </div>
         </div>
+        
+        {/* Decorative elements */}
+        <div className="absolute -top-10 -right-10 w-40 h-40 bg-amber-200/30 rounded-full blur-xl"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-100/40 rounded-full blur-2xl -mb-32 -ml-32"></div>
       </section>
 
       {/* Footer */}
